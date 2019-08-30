@@ -1,0 +1,42 @@
+<div class="hero-text">
+    <h1></h1>
+</div>
+<form action="" [formGroup] ='createForm' (ngSubmit)='onSubmit()'>
+    <div>
+
+        <label for="name">Name</label>
+        <input class="form-control" formControlName="name" type="text" name="name" id="product-name" placeholder="product-name">
+    </div>
+    <div>
+        <label for="name">Photo</label>
+        <input class="form-control" formControlName="photo" type="text" name="photo" id="product-photo" placeholder="product-photo">
+    </div>
+    <div>
+        <label for="name">Price</label>
+        <input class="form-control" formControlName="price" type="text" name="price" id="product-price" placeholder="product-price">
+    </div>
+    <div>
+        <label for="name">Color</label>
+        <input class="form-control" formControlName="color_way" type="text" name="color" id="product-color" placeholder="product-color">
+    </div>
+    <div>
+        <label for="name">Description</label>
+         <input class="form-control" formControlName="description" type="text" name="description" id="product-description" placeholder="product-descriptioin">
+    </div>
+    <div>
+        <label for="name">Quantity</label>
+        <input class="form-control" formControlName="qty" type="text" name="qty" id="product-qty" placeholder="product-qty">
+    </div>
+    <div>
+        <label for="category">Category</label>
+        <select formControlName="category" name="category" id="category">
+            <option value=""></option>
+            <option *ngFor="let c of categories$ | async" [value]="c.$key">
+                {{c.Name}}
+            </option>
+
+        </select>
+    </div>
+    <button type="submit" [disabled]="!createForm.valid">Submit</button>
+</form>
+
